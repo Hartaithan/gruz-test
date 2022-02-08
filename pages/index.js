@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 
 export default function Page() {
-  const id = 0;
+  const id = 1;
   const options = {
     params: {
       fields: {
@@ -30,13 +30,7 @@ function MyWonderfulComponent({ id, options, count, color, data, children }) {
   const [summ, setSumm] = useState(count);
 
   useEffect(() => {
-    if (
-      id &&
-      options &&
-      options.params &&
-      options.params.fields &&
-      options.params.fields.isDynamic
-    ) {
+    if (id && options.params.fields.isDynamic) {
       setSumm(summ + 1);
     }
   }, []); // eslint-disable-line
