@@ -2,18 +2,27 @@ import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import { styled } from "@mui/system";
 
-export default function Page() {
-  const id = 1;
-  const options = {
-    params: {
-      fields: {
-        isDynamic: true,
+export async function getServerSideProps() {
+  const props = {
+    id: 1,
+    options: {
+      params: {
+        fields: {
+          isDynamic: true,
+        },
       },
     },
+    count: 0,
+    color: "red",
+    data: { message: "Hello from SSR!" },
   };
-  const count = 0;
-  const color = "red";
-  const data = {};
+  console.info(props.data.message);
+  return {
+    props: props,
+  };
+}
+
+export default function Page({ id, options, count, color, data }) {
   return (
     <MyWonderfulComponent
       id={id}
@@ -43,6 +52,7 @@ function MyWonderfulComponent({ id, options, count, color, data, children }) {
   return (
     <>
       <StyledH1>Hello World!</StyledH1>
+      <p>{data.message}</p>
       <Grid>
         <Grid xs={12}>{children}</Grid>
         <Grid>{summ}</Grid>
