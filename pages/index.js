@@ -54,7 +54,9 @@ function MyWonderfulComponent({ id, options, count, color, data, children }) {
       <StyledH1>Hello World!</StyledH1>
       <p>{data.message}</p>
       <Grid>
-        <Grid xs={12}>{children}</Grid>
+        <Grid item xs={12}>
+          {children}
+        </Grid>
         <Grid>{summ}</Grid>
       </Grid>
     </>
