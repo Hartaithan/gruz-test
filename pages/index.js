@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
+import { styled } from "@mui/system";
 
 export default function Page() {
   const id = 1;
@@ -35,9 +36,13 @@ function MyWonderfulComponent({ id, options, count, color, data, children }) {
     }
   }, []); // eslint-disable-line
 
+  const StyledH1 = styled("h1")({
+    color: color,
+  });
+
   return (
     <>
-      <h1>Hello World!</h1>
+      <StyledH1>Hello World!</StyledH1>
       <Grid>
         <Grid xs={12}>{children}</Grid>
         <Grid>{summ}</Grid>
